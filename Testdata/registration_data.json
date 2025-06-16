@@ -1,0 +1,20 @@
+[
+  {
+    "first_name": "Niraj",
+    "last_name": "Patel",
+    "gender": "male",
+    "course": ["selenium", "devops"],
+    "country": "India",
+    "address": "200, automation street",
+    "city": "Ahmedabad",
+    "state": "Gujarat",
+    "postal_code": "38009966",
+    "email": "niraj.patel@example.com",
+    "date_of_demo": "",
+    "hour": "10",
+    "minute": "10",
+    "phone": "9876543210",
+    "query": "This is PyTest automation hybrid framework.",
+    "verification_code": "33"
+  }
+]
