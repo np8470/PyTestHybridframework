@@ -1,0 +1,5 @@
+2025-06-16 20:24:05,838 : INFO : 🔥 Pytest session started
+2025-06-16 20:24:06,954 : INFO : *********** Test_002_Login_DataDriven.test_login **************
+2025-06-16 20:24:09,476 : INFO : Successfully launched the application
+2025-06-16 20:24:14,969 : INFO : Failed....Title does not match
+2025-06-16 20:24:17,364 : INFO : 🧊 Pytest session finished
