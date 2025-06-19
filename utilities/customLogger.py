@@ -20,7 +20,7 @@ class LogGen:
             os.makedirs(logs_dir, exist_ok=True)
 
             log_path = os.path.join(logs_dir, log_filename)
-            print(f"📁 Logging to: {log_path}")
+            print(f"Logging to: {log_path}")
 
             # File handler
             file_handler = logging.FileHandler(log_path, mode='a', encoding='utf-8')
