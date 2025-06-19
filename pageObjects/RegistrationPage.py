@@ -1,5 +1,4 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import Select
 from utilities.SeleniumUtils import SeleniumUtils
 
 class RegistrationPage:

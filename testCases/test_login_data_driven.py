@@ -17,7 +17,8 @@ class Test_002_Login_DataDriven:
     os.makedirs(testdata_dir, exist_ok=True)
 
     testdata_path = os.path.join(testdata_dir, "LoginData.xlsx")
-    print(f"📁 TestData Path: {testdata_path}")
+    print(f"[DIR] TestData Path: {testdata_path}")
+
 
     def test_login(self, setup):
         logger = LogGen().loggen()

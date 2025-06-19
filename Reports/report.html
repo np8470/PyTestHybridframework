@@ -328,7 +328,7 @@ div.media {
   </head>
   <body>
     <h1 id="title">report.html</h1>
-    <p>Report generated on 17-Jun-2025 at 16:23:59 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+    <p>Report generated on 18-Jun-2025 at 15:53:11 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
         v4.1.1</p>
     <div id="environment-header">
       <h2>Environment</h2>
@@ -382,7 +382,7 @@ div.media {
         <h2>Summary</h2>
         <div class="additional-summary prefix">
         </div>
-        <p class="run-count">1 test took 00:00:17.</p>
+        <p class="run-count">1 test took 00:00:08.</p>
         <p class="filter">(Un)check the boxes to filter the results.</p>
         <div class="summary__reload">
           <div class="summary__reload__button hidden" onclick="location.reload()">
@@ -392,10 +392,10 @@ div.media {
         <div class="summary__spacer"></div>
         <div class="controls">
           <div class="filters">
-            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" />
-            <span class="failed">1 Failed,</span>
-            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" disabled/>
-            <span class="passed">0 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" disabled/>
+            <span class="failed">0 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">1 Passed,</span>
             <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled/>
             <span class="skipped">0 Skipped,</span>
             <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
@@ -429,7 +429,7 @@ div.media {
     </table>
   </body>
   <footer>
-    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.12.6&#34;, &#34;Platform&#34;: &#34;Windows-11-10.0.26100-SP0&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.4.0&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}}, &#34;tests&#34;: {&#34;testCases/test_registration.py::test_fill_registration_form[reg_data0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Failed&#34;, &#34;testId&#34;: &#34;testCases/test_registration.py::test_fill_registration_form[reg_data0]&#34;, &#34;duration&#34;: &#34;00:00:17&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Failed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;testCases/test_registration.py::test_fill_registration_form[reg_data0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:17&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;setup = &amp;lt;selenium.webdriver.chrome.webdriver.WebDriver (session=&amp;quot;6eb4802f382ee7ee1183184ddae12c75&amp;quot;)&amp;gt;\nreg_data = {&amp;#x27;address&amp;#x27;: &amp;#x27;200, automation street&amp;#x27;, &amp;#x27;city&amp;#x27;: &amp;#x27;Ahmedabad&amp;#x27;, &amp;#x27;country&amp;#x27;: &amp;#x27;India&amp;#x27;, &amp;#x27;course&amp;#x27;: [&amp;#x27;selenium&amp;#x27;, &amp;#x27;devops&amp;#x27;], ...}, logger = &amp;lt;Logger automationLogger (INFO)&amp;gt;\n\n    @pytest.mark.parametrize(&amp;quot;reg_data&amp;quot;, load_register_test_data())\n    def test_fill_registration_form(setup, reg_data, logger):\n        driver = setup\n        driver.get(&amp;quot;https://vinothqaacademy.com/demo-site/&amp;quot;)\n        reg_page = RegistrationPage(driver)\n        reg_page.fill_registration_form_util(reg_data)\n    \n        #  verify registration success here\n    \n        transaction_data = load_transaction_test_data()  # loaded once per test run\n    \n        transaction_page = TransactionDetailsPage(driver)\n        transaction_page.verify_title(transaction_data)\n&amp;gt;       transaction_page.verify_success_msg(transaction_data)\n\ntestCases\\test_registration.py:29: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _\n\nself = &amp;lt;pageObjects.TransactionDetailsPage.TransactionDetailsPage object at 0x00000251F27C5B50&amp;gt;\ndata = {&amp;#x27;success_msg&amp;#x27;: &amp;#x27;Registration Form is Successfully Submitted. The Transaction ID :&amp;#x27;, &amp;#x27;title&amp;#x27;: &amp;#x27;Transaction Details&amp;#x27;}\n\n    def verify_success_msg(self, data):\n        actual_success_msg = self.utils.get_text(self.SUCCESS_MSG)\n&amp;gt;       assert actual_success_msg.__eq__(data[&amp;quot;success_msg&amp;quot;])\n               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nE       AssertionError\n\npageObjects\\TransactionDetailsPage.py:21: AssertionError\n\n------------------------------ Captured log setup ------------------------------\nINFO     automationLogger:conftest.py:16 \ud83d\udd25 Pytest session started\n---------------------------- Captured log teardown -----------------------------\nINFO     automationLogger:conftest.py:18 \ud83e\uddca Pytest session finished&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.12.6&#34;, &#34;Platform&#34;: &#34;Windows-11-10.0.26100-SP0&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.4.0&#34;, &#34;pluggy&#34;: &#34;1.6.0&#34;}}, &#34;tests&#34;: {&#34;testCases/test_dropdown.py::TestDropdown::test_dropdown[dropdown_data0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;testCases/test_dropdown.py::TestDropdown::test_dropdown[dropdown_data0]&#34;, &#34;duration&#34;: &#34;00:00:08&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;testCases/test_dropdown.py::TestDropdown::test_dropdown[dropdown_data0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;00:00:08&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;------------------------------ Captured log setup ------------------------------\nINFO     automationLogger:conftest.py:16 \ud83d\udd25 Pytest session started\n---------------------------- Captured log teardown -----------------------------\nINFO     automationLogger:conftest.py:18 \ud83e\uddca Pytest session finished&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
     <script>
       (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
 const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
