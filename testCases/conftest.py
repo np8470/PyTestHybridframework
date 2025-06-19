@@ -6,7 +6,7 @@ from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
 
 
-# ✅ Optional: Force plugin loading (not always necessary but helps Pytest 8+)
+# Optional: Force plugin loading (not always necessary but helps Pytest 8+)
 pytest_plugins = ["pytest_html", "pytest_metadata"]
 
 # For session start/end log messages (optional)
@@ -37,7 +37,7 @@ def setup(request):
     driver.maximize_window()
 
     yield driver
-    print("🔧 Closing browser")
+    print("Closing browser")
     driver.quit()
 
 def pytest_addoption(parser): # This will get the value from CLI/hooks
