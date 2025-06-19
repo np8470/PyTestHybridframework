@@ -13,9 +13,9 @@ pytest_plugins = ["pytest_html", "pytest_metadata"]
 @pytest.fixture(scope="session", autouse=True)
 def setup_logging_once():
     logger = LogGen.loggen()
-    logger.info("🔥 Pytest session started")
+    logger.info("Pytest session started")
     yield
-    logger.info("🧊 Pytest session finished")
+    logger.info("Pytest session finished")
 
 # Actual fixture to use in test
 @pytest.fixture
@@ -27,12 +27,12 @@ def setup(request):
     browser = request.config.getoption("--browser").lower().strip()
     if browser == "chrome":
         driver = webdriver.Chrome()
-        print("🚀 Launching Chrome browser...........")
+        print("Launching Chrome browser...........")
     elif browser == "firefox":
         driver = webdriver.Firefox()
-        print("🚀 Launching Firefox browser..........")
+        print("Launching Firefox browser..........")
     else:
-        raise ValueError(f"❌ Unsupported browser: {browser}")
+        raise ValueError(f"Unsupported browser: {browser}")
 
     driver.maximize_window()
 

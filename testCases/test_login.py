@@ -36,7 +36,7 @@ class Test_001_Login:
             success = self.driver.save_screenshot(screenshot_path)
             logger.error("Verify Home Page Title testcase is failed")
             if not success:
-                print("❌ Screenshot saving failed")
+                print("Screenshot saving failed")
             assert False
 
         self.driver.close()

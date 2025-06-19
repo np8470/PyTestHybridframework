@@ -115,8 +115,8 @@ class SeleniumUtils:
         print("Screenshot saved at", file_path)
         try:
             self.driver.save_screenshot(file_path)
-            print(f"✅ Screenshot saved to: {file_path}")
+            print(f"Screenshot saved to: {file_path}")
         except Exception as e:
-            print(f"❌ Screenshot saving failed: {e}")
+            print(f"Screenshot saving failed: {e}")
 
 
