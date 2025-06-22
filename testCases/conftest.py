@@ -55,17 +55,12 @@ def pytest_addoption(parser): # This will get the value from CLI/hooks
     parser.addoption("--browser", action="store", default="chrome",
                      help="Browser to run tests against: chrome or firefox")
     parser.addoption("--env", action="store", default="qa", help="Environment to run tests: qa/dev/staging/prod")
-    parser.addoption("--reportportal", action="store_true", help="Enable ReportPortal integration")
 # PyTest- HTML Report
 
 # Hook to add environment info to HTML report
 # terminal -  pytest -s -v --html=Reports\report.html -n=2 --browser=chrome --env=qa testCases/test_login.py::Test_001_Login::test_homepageTitle
 @pytest.hookimpl(tryfirst=True)
 def pytest_configure(config):
-    if config.getoption("--reportportal"):
-        import pytest_reportportal
-        config.pluginmanager.register(pytest_reportportal.RPLogHandler(), "reportportal")
-
     # This will add metadata if pytest-html is installed and configured
     config._metadata = {
         "Environment": "QA",
