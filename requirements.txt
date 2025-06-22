@@ -5,3 +5,4 @@ pytest-xdist
 openpyxl
 allure-pytest
 reportportal-client
+pytest-reportportal
