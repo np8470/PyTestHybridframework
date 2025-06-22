@@ -6,8 +6,8 @@ on:
       - master
   pull_request:
   schedule:
-    - cron: '10 12 * * *'  # Every day at 12:10 PM
-
+    - cron: '*/5 * * * *'  # Every 5 minute
+  workflow_dispatch:         # Manual trigger support
 jobs:
   test:
     runs-on: windows-latest   #ubuntu-latest
