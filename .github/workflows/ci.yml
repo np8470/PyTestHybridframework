@@ -12,6 +12,9 @@ jobs:
   test:
     runs-on: windows-latest   #ubuntu-latest
 
+    env:
+      RP_API_KEY: ${{ secrets.RP_API_KEY }}
+
     steps:
       - name: Checkout Code
         uses: actions/checkout@v3
