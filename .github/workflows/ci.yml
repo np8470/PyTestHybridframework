@@ -26,15 +26,19 @@ jobs:
 
       - name: Install Dependencies
         run: |
+          python -m venv .venv
+          source .venv/bin/activate
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Run Tests
+      - name: Run Tests with ReportPortal
         run: |
-          pytest -s -v -m "regression" --html=Reports\\report.html --self-contained-html testCases/ --browser chrome
-
+          source .venv/bin/activate
+          # pytest -s -v -m "regression" --html=Reports\\report.html --self-contained-html testCases/ --browser chrome
+          pytest -m "regression" testCases/
       - name: Upload Test Report
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: html-report
+          name: pytest-html-report
           path: Reports/report.html
