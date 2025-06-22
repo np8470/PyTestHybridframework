@@ -1,0 +1,37 @@
+name: Run Automation Tests
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  schedule:
+    - cron: '0 12:10 * * *'  # Every day at 3 AM
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Tests
+        run: |
+          pytest -s -v -m "regression" --html=Reports\\report.html --self-contained-html testCases/ --browser chrome
+
+      - name: Upload Test Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: html-report
+          path: Reports/report.html
