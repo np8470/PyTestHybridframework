@@ -34,8 +34,8 @@ jobs:
       - name: Run Tests with ReportPortal
         run: |
           .\.venv\Scripts\activate
-          # pytest -s -v -m "regression" --html=Reports\\report.html --self-contained-html testCases/ --browser chrome
-          pytest -m "regression" testCases/
+          pytest -s -v -m "regression" --html=Reports\\report.html --self-contained-html testCases/ --browser chrome
+          #pytest -m "regression" testCases/
       - name: Upload Test Report
         if: always()
         uses: actions/upload-artifact@v4
