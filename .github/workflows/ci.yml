@@ -6,11 +6,11 @@ on:
       - master
   pull_request:
   schedule:
-    - cron: '10 12 * * *'  # Every day at 3 AM
+    - cron: '10 12 * * *'  # Every day at 12:10 PM
 
 jobs:
   test:
-    runs-on: windows-latest
+    runs-on: windows-latest   #ubuntu-latest
 
     steps:
       - name: Checkout Code

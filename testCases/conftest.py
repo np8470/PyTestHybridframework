@@ -4,7 +4,15 @@ from selenium import webdriver
 from utilities.customLogger import LogGen
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.chrome.service import Service as ChromeService
+import os
+from datetime import datetime
+import logging
+import time
 
+
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 # Optional: Force plugin loading (not always necessary but helps Pytest 8+)
 pytest_plugins = ["pytest_html", "pytest_metadata"]
@@ -26,7 +34,10 @@ def logger():
 def setup(request):
     browser = request.config.getoption("--browser").lower().strip()
     if browser == "chrome":
-        driver = webdriver.Chrome()
+        options = webdriver.ChromeOptions()
+        options.add_argument('--headless')  # For CI
+        driver = webdriver.Chrome(options=options)
+        #driver = webdriver.Chrome()
         print("Launching Chrome browser...........")
     elif browser == "firefox":
         driver = webdriver.Firefox()
@@ -35,7 +46,7 @@ def setup(request):
         raise ValueError(f"Unsupported browser: {browser}")
 
     driver.maximize_window()
-
+    request.cls.driver = driver
     yield driver
     print("Closing browser")
     driver.quit()
@@ -74,3 +85,33 @@ def pytest_configure(config):
 def pytest_metadata(metadata):
     metadata.pop("JAVA_HOME", None)
     metadata.pop("Plugins", None)
+
+
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    outcome = yield
+    result = outcome.get_result()
+
+    if result.when == "call" and result.failed:
+        driver = item.funcargs.get("setup")
+        if driver:
+            screenshot_dir = os.path.join("Reports", "screenshots")
+            os.makedirs(screenshot_dir, exist_ok=True)
+            screenshot_file = os.path.join(
+                screenshot_dir,
+                f"{item.name}_{datetime.now().strftime('%Y%m%d%H%M%S')}.png"
+            )
+            driver.save_screenshot(screenshot_file)
+
+            if hasattr(item.config, "_reportportal_service"):
+                with open(screenshot_file, "rb") as image_file:
+                    item.config._reportportal_service.log(
+                        time=int(time.time() * 1000),
+                        message="Screenshot on failure",
+                        level="ERROR",
+                        attachment={
+                            "name": os.path.basename(screenshot_file),
+                            "data": image_file.read(),
+                            "mime": "image/png"
+                        }
+                    )
