@@ -6,3 +6,4 @@ openpyxl
 allure-pytest
 reportportal-client
 pytest-reportportal
+requests
