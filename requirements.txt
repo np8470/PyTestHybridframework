@@ -7,3 +7,6 @@ allure-pytest
 reportportal-client
 pytest-reportportal
 requests
+axe-selenium-python
+
+
